@@ -29,6 +29,10 @@ session_start ();
 </head>
 <body>
 	<div id="header">
+	<h1><br>The Distillery</h1>
+<h4><em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Things to take into your day"</em></h4>
+</div>
+<div class='container'>
        <?php include("header.inc.php"); ?>
   	</div>
 	<div id="content">

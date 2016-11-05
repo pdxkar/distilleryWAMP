@@ -8,8 +8,17 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="main.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="gallery.css">
 
 
@@ -17,6 +26,62 @@
 <body>
 	<div id="thistledownHeading">
 		<h1>Thistledown Software Company</h1>
+	</div>
+		<div class='container'>
+	<?php 
+	session_start();
+	//if logged in
+	if (isset($_SESSION['valid_recipe_user'])) {
+		echo "<ul class=\"nav nav-pills\">";
+		echo "<li class=\"active\"><a href=\"index.php?\">Home</a></li>";
+		echo "<li class=\"dropdown\">";
+		echo "<a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">Posts <b class=\"caret\"></b></a>";
+		echo "<ul class=\"dropdown-menu\">";
+		echo "<li><a href=\"newresource.inc.php?\">Add Resource</a></li>";
+		echo "<li><a href=\"selectResourceToEdit.inc.php?\">Edit Resource</a></li>";
+		echo "<li><a href=\"selectResourceToDelete.inc.php?\">Delete Resource</a></li>";
+		echo "<li><a href=\"newfeature.inc.php?\">Add Feature</a></li>";
+		echo "<li><a href=\"selectFeatureToEdit.inc.php?\">Edit Feature</a></li>";
+		echo "<li><a href=\"selectFeatureToDelete.inc.php?\">Delete Feature</a></li>";
+		echo "<li><a href=\"newessay.inc.php?\">Add Essay</a></li>";
+		echo "<li><a href=\"selectEssayToEdit.inc.php?\">Edit Essay</a></li>";
+		echo "<li><a href=\"selectEssayToDelete.inc.php?\">Delete Essay</a></li>";
+		echo "<li><a href=\"testGallery.inc.php?\">Test Gallery</a></li>";
+		echo "<li class=\"divider\"></li>";
+		echo "<li><a href=\"thistledownSoftwareCompany.inc.php\">Thistledown Software Company</a></li>";
+		echo "</ul>";
+		echo "</li>";
+		echo "<li class=\"dropdown pull-right\">";
+		echo "<a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">";
+		echo "signed is as: ";
+		echo $_SESSION['valid_recipe_user'];
+		echo "<b class=\"caret\"></b></a>";
+		echo "<ul class=\"dropdown-menu\">";
+		echo "<li><a href=\"logout.inc.php?\">Logout</a></li>";
+		echo "<li class=\"divider\"></li>";
+		echo "<li><a href=\"thistledownSoftwareCompany.inc.php\">Thistledown Software Company</a></li>";
+		echo "</ul>";
+		echo "</li>";
+		echo "</ul>";
+	} else {
+		//if not logged in
+		echo "<ul class=\"nav nav-pills\">";
+		echo "<li class=\"active\"><a href=\"index.php?\">Home</a></li>";
+		echo "<li class=\"dropdown\">";
+		echo "<a href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\">Posts <b class=\"caret\"></b></a>";
+		echo "<ul class=\"dropdown-menu\">";
+		echo "<li><a href=\"testGallery.inc.php?\">Test Gallery</a></li>";
+		echo "<li class=\"divider\"></li>";
+		echo "<li><a href=\"thistledownSoftwareCompany.inc.php\">Thistledown Software Company</a></li>";
+		echo "</ul>";
+		echo "</li>";
+		echo "<ul class=\"nav navbar-nav navbar-right\">";
+		echo "<li><a href=\"login.inc.php?\">Login</a></li>";
+		echo "<li><a href=\"register.inc.php?\">Register</a></li>";
+		echo "</ul>";
+		echo "</ul>";
+	}
+	?>
 	</div>
 	<!-- wrapper containing welcome box and viewer box -->
 	<div id="welcomeAndViewerWrapper">

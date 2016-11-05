@@ -3,7 +3,7 @@ include 'db.inc.php';
 
 // get all resources
 // TODO get resourceURL
-$st = $app ['pdo']->prepare ( 'SELECT resourceId,resourceTitle,subtext,resourceImageUrl,resourceTypeId,resourceDesc from resources' );
+$st = $app ['pdo']->prepare ( 'SELECT resourceId,resourceTitle,subtext,resourceImageUrl,resourceTypeId,resourceDesc,resourceUrl from resources' );
 $st->execute ();
 
 //display each resource's info with a link to read more
@@ -13,9 +13,9 @@ while ( $row = $st->fetch ( PDO::FETCH_ASSOC ) ) {
 	$resourceTitle = $row ['resourceTitle'];
 	$resourceImageUrl = $row ['resourceImageUrl'];
 	$resourceTypeId = $row ['resourceTypeId'];
-	
 	$subtext = $row ['subtext'];
 	$resourceDesc = $row ['resourceDesc'];
+	$resourceUrl = $row ['resourceUrl'];
 	
 	// get the resource type name (i.e. "podcast") for each resource
 	$stmt = $app ['pdo']->prepare ( 'SELECT resourceTypeName from resourceTypes where resourceTypeId = :resourceTypeId' );
@@ -50,9 +50,11 @@ while ( $row = $st->fetch ( PDO::FETCH_ASSOC ) ) {
 				&resourceImageUrl=$resourceImageUrl
 				\">read more</a></font>";
 	
-	echo "</div>
-	<div id=\"logoBox\"><img src=\"$resourceImageUrl\" alt=\"W3Schools.com\" style=\"width:104px;height:142px;\"></div>
-	<div style=\"clear: both\"></div>
-	</div>";
+	echo "</div>";
+	echo "<div id=\"logoBox\"><a href=\"$resourceUrl\"\">";
+	echo "<img src=\"$resourceImageUrl\" alt=\"W3Schools.com\" style=\"width:104px;height:142px;\">";
+	echo "</a></div>";
+	echo "<div style=\"clear: both\"></div>";
+	echo "</div>";
 }
 ?>

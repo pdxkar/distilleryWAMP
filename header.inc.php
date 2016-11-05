@@ -1,8 +1,3 @@
-<h1><br>The Distillery</h1>
-<h4><em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Things to take into your day"</em></h4>
-<br />
-<br />
-<div class='container'>
 	<?php 
 		session_start();
 		//if logged in
@@ -58,4 +53,4 @@
 		}
 	?>
 
-</div>
+
