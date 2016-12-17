@@ -32,7 +32,7 @@ $dbopts["pass"] = "test";
 //db for prod:  		'pdo.dsn' => 'mysql:dbname=distillery',
 $app->register(new Herrera\Pdo\PdoServiceProvider(),
 		array(
-				'pdo.dsn' => 'mysql:dbname=distillery',
+				'pdo.dsn' => 'mysql:dbname=distillerydemo',
 				'pdo.port' => $dbopts["port"],
 				'pdo.username' => $dbopts["user"],
 				'pdo.password' => $dbopts["pass"]

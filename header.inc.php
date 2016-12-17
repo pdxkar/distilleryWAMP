@@ -1,5 +1,10 @@
 	<?php 
+
+	if(!isset($_SESSION))
+	{
 		session_start();
+	}
+
 		//if logged in
 		if (isset($_SESSION['valid_recipe_user'])) {
 			echo "<ul class=\"nav nav-pills\">";
